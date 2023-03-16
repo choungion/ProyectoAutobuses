@@ -6,11 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
+
 
 public class Mapa extends JFrame
 {
@@ -28,7 +28,6 @@ public class Mapa extends JFrame
         boton.addActionListener(oyente);
     }
 
-    
     public Mapa()
     {
         this.setSize(1300, 1000);
