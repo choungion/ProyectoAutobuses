@@ -8,13 +8,11 @@ package proyectoautobuses;
  *
  * @author choungion
  */
-public class ProyectoAutobuses {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class ProyectoAutobuses 
+{
+    public static void main(String[] args) 
+    {
+        new Mapa().setVisible(true);
+    }//Clase main del  proyecto
     
 }
