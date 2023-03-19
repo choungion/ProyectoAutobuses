@@ -10,9 +10,10 @@ package proyectoautobuses;
  */
 public class ProyectoAutobuses 
 {
+    //Clase main del  proyecto
     public static void main(String[] args) 
     {
         new Mapa().setVisible(true);
-    }//Clase main del  proyecto
+    }
     
 }
