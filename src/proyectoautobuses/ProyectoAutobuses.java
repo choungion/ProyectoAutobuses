@@ -15,5 +15,4 @@ public class ProyectoAutobuses
     {
         new Mapa().setVisible(true);
     }
-    
 }
