@@ -62,7 +62,7 @@ public class Autobus4 extends Thread {
         i = 241;
         do {
             label.setLocation(coordenadasX[i] - 20, coordenadasY[i] - 20);
-            System.out.println(i + ", " + coordenadasX[i] + ", " + coordenadasY[i]);
+            
             // Revisa si el autobus se encuentra en la parada Ciudad Deportiva Rafael Ángel
             // Pérez
             if (coordenadasX[i] == 244 && coordenadasY[i] == 497) {
