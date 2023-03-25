@@ -4,6 +4,8 @@
  */
 package proyectoautobuses;
 
+import proyectoautobuses.pk_Server.Mapa;
+
 /**
  *
  * @author choungion
