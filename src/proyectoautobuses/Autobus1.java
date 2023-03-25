@@ -23,15 +23,19 @@ public class Autobus1 extends Thread
     }
     public void run() 
     {
-        label.setIcon(new ImageIcon(getClass().getResource("Imagenes//prueba.png")));
+        label.setIcon(new ImageIcon(getClass().getResource("Imagenes//Autobus1.png")));
         Dimension sizeBus = label.getPreferredSize();
         label.setBounds(150, 100, sizeBus.width, sizeBus.height);
         i = 0;
         do 
         {
-            label.setLocation(coordenadasX[i], coordenadasY[i]);
+            label.setLocation(coordenadasX[i]-20, coordenadasY[i]-20);
             if(i==285)
             {
+                if(coordenadasX[i]== 244 && coordenadasY[i]== 497)
+                {
+
+                }
                 i=0;
             }
             else
@@ -49,6 +53,7 @@ public class Autobus1 extends Thread
         } while (flag = !false);
         
     }
+    //Este metodo cambia la variable flag a false para que al detener el hilo se termine la ejecucion del ciclo do while
     public static void stopImgMv() 
     {
         flag = false;
