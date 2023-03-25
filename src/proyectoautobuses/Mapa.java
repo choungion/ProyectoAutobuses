@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -22,7 +23,9 @@ public class Mapa extends JFrame
     //Declaracion de variables
     private JPanel panel;
     private JLabel fondo = new JLabel("", SwingConstants.CENTER);
-    Thread bus1, bus2, bus3, bus4, bus5, bus6, bus7, bus8, bus9, bus10;
+    private JLabel imgBus1 = new JLabel();
+    Autobus1 bus1;
+    
     
     //Metodo para agregar botones al frame
     public void addBoton(Container c, String titulo, ActionListener oyente)
@@ -45,14 +48,27 @@ public class Mapa extends JFrame
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 
         
+        //Definicion de caracteristicas del JFrame
+        this.setSize(1200, 800);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+
+        
+        
         //Se utiliza el JLabel fondo para agregar la imagen del mapa con la ruta
         fondo.setIcon(new ImageIcon(getClass().getResource("Imagenes//Mapa.png")));
+        Dimension sizeFondo = fondo.getPreferredSize();
+        fondo.setBounds(0, 0, sizeFondo.width, sizeFondo.height);
 
+        //imgBus1.setLocation(500, 500);
+
+        
 
         //Creacion del JPanel panel
         panel = new JPanel(null);
         add(panel, BorderLayout.CENTER);
-        this.add(fondo);
+        panel.add(imgBus1);
+        
 
 
         //Creacion del JPanel panel_Botones y sus elementos
@@ -82,35 +98,15 @@ public class Mapa extends JFrame
      //Metodo para iniciar los hilos de los autobuses
      public void iniciar()
      {
-         Autobus autobus = new Autobus();
-         Runnable runna = new HilosAutobus(autobus, panel);
-         
-         bus1 = new Thread(runna);
-         
+         bus1 = new Autobus1("Bus1", imgBus1);
+         Autobus1.stopImgMv();
          bus1.start();
-         bus2.start();
-         bus3.start();
-         bus4.start();
-         bus5.start();
-         bus6.start();
-         bus7.start();
-         bus8.start();
-         bus9.start();
-         bus10.start();
+         panel.add(fondo);
      }
 
     //Metodo para detener los hilos de los autobuses
     public void detener()
     {
         bus1.stop();
-        bus2.stop();
-        bus3.stop();
-        bus4.stop();
-        bus5.stop();
-        bus6.stop();
-        bus7.stop();
-        bus8.stop();
-        bus9.stop();
-        bus10.stop();
     }
 }
