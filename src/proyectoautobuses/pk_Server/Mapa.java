@@ -14,6 +14,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.awt.BorderLayout;
 import javax.swing.AbstractButton;
 import java.awt.Graphics2D;
@@ -34,6 +39,7 @@ public class Mapa extends JFrame
     private JLabel imgBus8 = new JLabel();
     private JLabel imgBus9 = new JLabel();
     private JLabel imgBus10 = new JLabel();
+    
     Autobus1 bus1;
     Autobus2 bus2;
     Autobus3 bus3;
@@ -44,6 +50,8 @@ public class Mapa extends JFrame
     Autobus8 bus8;
     Autobus9 bus9;
     Autobus10 bus10;
+    
+    
      
     public Mapa()
     {
@@ -164,4 +172,5 @@ public class Mapa extends JFrame
         bus9.stop();
         bus10.stop();
     }
+    
 }

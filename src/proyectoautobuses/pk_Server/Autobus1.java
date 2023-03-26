@@ -3,14 +3,18 @@ package proyectoautobuses.pk_Server;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Dimension;
+import java.security.MessageDigest;
 import java.util.Random;
 
 public class Autobus1 extends Thread {
+
+    //Declaracion de variables
     private String nombre;
     private JLabel label;
     private Random rand = new Random();
     private static boolean flag = true;
     private int x, y, i;
+    private static String mensaje;
     private int[] coordenadasX = { 244, 250, 252, 264, 279, 291, 311, 313, 323, 334, 346, 353, 360, 365, 366, 376, 383,
             391, 398, 400, 405, 410, 413, 410, 406, 400, 395, 390, 386, 392, 395, 397, 392, 382, 371, 365, 364, 363,
             354, 338, 324, 317, 317, 327, 335, 345, 355, 364, 364, 365, 367, 373, 384, 397, 410, 421, 430, 438, 450,
@@ -41,32 +45,53 @@ public class Autobus1 extends Thread {
             592, 580, 570, 563, 560, 560, 565, 564, 563, 562, 563, 558, 556, 553, 551, 548, 547, 546, 552, 557, 564,
             571, 578, 582, 579, 579, 583, 588, 583, 579, 573, 565, 557, 549, 539, 530, 519, 512, 497 };
 
+    // Metodo para darle valor a las variables nombre y label
     public Autobus1(String nombre, JLabel label) {
         this.nombre = nombre;
         this.label = label;
     }
 
+    //Este metodo determina el tiempo de parada de cada autobus en las distinas paradas
     private void parada()
     {
+        int min = 500;
+        int max = 1300;
+        int aleatorio = (int)(Math.random()*(max-min+1)) + min;
         try {
-            Thread.sleep(500);
+            Thread.sleep(aleatorio);
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
     }
-
+    //En este metodo se determina el comportamiento del hilo
     public void run() {
+
+        //Se le agrega una imagen al label
         label.setIcon(new ImageIcon(getClass().getResource("Imagenes//Autobus1.png")));
         Dimension sizeBus = label.getPreferredSize();
         label.setBounds(150, 100, sizeBus.width, sizeBus.height);
         i = 0;
+        Ubicaciones ubicaciones = new Ubicaciones();
+        
+        // Realiza el movimiento del label
         do {
+            //Comprueba si esta apunto de adelalntar al autobus de enfrente 
+            int[] coords = {coordenadasX[i],coordenadasY[i]};
+            if (coords == ubicaciones.getBus10()) 
+            {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            }
             label.setLocation(coordenadasX[i] - 20, coordenadasY[i] - 20);
-            
+            ubicaciones.setBus1(coords);
             // Revisa si el autobus se encuentra en la parada Ciudad Deportiva Rafael Ángel
             // Pérez
             if (coordenadasX[i] == 244 && coordenadasY[i] == 497) {
                 parada();
+                setMensaje("El autobus 1 se encuentra en la parada Ciudad Deportiva Rafael Ángel Pérez");
             }
             // Revisa si el autobus se encuentra en la parada Super Lian, Hatillo
             if (coordenadasX[i] == 264 && coordenadasY[i] == 480) {
@@ -154,17 +179,25 @@ public class Autobus1 extends Thread {
                 i++;
             }
             try {
-                Thread.sleep(100);
+                Thread.sleep(400);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
         } while (flag = !false);
 
     }
-
     // Este metodo cambia la variable flag a false para que al detener el hilo se
     // termine la ejecucion del ciclo do while
     public static void stopImgMv() {
         flag = false;
+    }
+
+    public void setMensaje(String MENSAJE) 
+    {
+        Autobus1.mensaje=MENSAJE;
+    }
+    public static String getMensaje()
+    {
+        return mensaje;
     }
 }

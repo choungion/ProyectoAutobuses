@@ -4,6 +4,7 @@
  */
 package proyectoautobuses;
 
+import javax.swing.JFrame;
 import proyectoautobuses.pk_Server.Mapa;
 
 /**

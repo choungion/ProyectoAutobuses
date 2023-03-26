@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.util.Random;
 
 public class Autobus10 extends Thread {
+
+    //Declaracion de variables
     private String nombre;
     private JLabel label;
     private Random rand = new Random();
@@ -41,28 +43,47 @@ public class Autobus10 extends Thread {
             592, 580, 570, 563, 560, 560, 565, 564, 563, 562, 563, 558, 556, 553, 551, 548, 547, 546, 552, 557, 564,
             571, 578, 582, 579, 579, 583, 588, 583, 579, 573, 565, 557, 549, 539, 530, 519, 512, 497 };
 
+    // Metodo para darle valor a las variables nombre y label
     public Autobus10(String nombre, JLabel label) {
         this.nombre = nombre;
         this.label = label;
     }
 
+    //Este metodo determina el tiempo de parada de cada autobus en las distinas paradas
     private void parada()
     {
+        int min = 500;
+        int max = 1300;
+        int aleatorio = (int)(Math.random()*(max-min+1)) + min;
         try {
-            Thread.sleep(500);
-        } catch (InterruptedException e1) {
-            e1.printStackTrace();
+            Thread.sleep(aleatorio);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
-
+    //En este metodo se determina el comportamiento del hilo
     public void run() {
+
+        //Se le agrega una imagen al label
         label.setIcon(new ImageIcon(getClass().getResource("Imagenes//Autobus10.png")));
         Dimension sizeBus = label.getPreferredSize();
         label.setBounds(150, 100, sizeBus.width, sizeBus.height);
         i = 132;
+        Ubicaciones ubicaciones = new Ubicaciones();
+        // Realiza el movimiento del label
         do {
+            //Comprueba si esta apunto de adelalntar al autobus de enfrente 
+            int[] coords = {coordenadasX[i],coordenadasY[i]};
+            if (coords == ubicaciones.getBus9()) 
+            {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            }
             label.setLocation(coordenadasX[i] - 20, coordenadasY[i] - 20);
-            
+            ubicaciones.setBus10(coords);
             // Revisa si el autobus se encuentra en la parada Ciudad Deportiva Rafael Ángel
             // Pérez
             if (coordenadasX[i] == 244 && coordenadasY[i] == 497) {
@@ -151,10 +172,10 @@ public class Autobus10 extends Thread {
 
                 i = 0;
             } else {
-                i++;
+                //i++;
             }
             try {
-                Thread.sleep(100);
+                Thread.sleep(400);
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
