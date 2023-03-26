@@ -65,15 +65,10 @@ public class Mapa extends JFrame
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
         
-        
         //Se utiliza el JLabel fondo para agregar la imagen del mapa con la ruta
         fondo.setIcon(new ImageIcon(getClass().getResource("Imagenes//Mapa.png")));
         Dimension sizeFondo = fondo.getPreferredSize();
         fondo.setBounds(0, 0, sizeFondo.width, sizeFondo.height);
-
-        //imgBus1.setLocation(500, 500);
-
-        
 
         //Creacion del JPanel panel
         panel = new JPanel(null);
@@ -114,7 +109,6 @@ public class Mapa extends JFrame
             
             
         });
-
         panel_Botones.add(btnIniciar,BorderLayout.WEST);
         panel_Botones.add(btnDetener, BorderLayout.EAST);
         add(panel_Botones, BorderLayout.SOUTH);

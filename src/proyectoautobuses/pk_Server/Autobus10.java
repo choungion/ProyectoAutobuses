@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Autobus10 extends Thread {
 
-    //Declaracion de variables
+    // Declaracion de variables
     private String nombre;
     private JLabel label;
     private Random rand = new Random();
@@ -18,7 +18,8 @@ public class Autobus10 extends Thread {
             354, 338, 324, 317, 317, 327, 335, 345, 355, 364, 364, 365, 367, 373, 384, 397, 410, 421, 430, 438, 450,
             467, 473, 474, 475, 476, 476, 477, 478, 479, 489, 499, 509, 518, 527, 535, 541, 546, 551, 559, 570, 581,
             590, 599, 601, 601, 602, 605, 617, 628, 636, 644, 659, 670, 686, 697, 709, 721, 737, 754, 769, 785, 803,
-            820, 831, 850, 866, 882, 894, 904, 913, 920, 933, 946, 955, 965, 973, 969, 975, 976, 983, 986, 990, 995, 1000,
+            820, 831, 850, 866, 882, 894, 904, 913, 920, 933, 946, 955, 965, 973, 969, 975, 976, 983, 986, 990, 995,
+            1000,
             1005, 1011, 1013, 1009, 1004, 999, 997, 997, 993, 987, 994, 1005, 1016, 1027, 1037, 1047, 1056, 1062, 1064,
             1062, 1059, 1051, 1039, 1027, 1012, 1006, 1005, 1004, 1002, 999, 992, 981, 970, 956, 954, 935, 935, 936,
             938, 942, 946, 946, 946, 946, 944, 954, 958, 952, 944, 940, 941, 948, 951, 951, 949, 943, 939, 934, 925,
@@ -33,10 +34,12 @@ public class Autobus10 extends Thread {
             337, 336, 334, 328, 320, 321, 323, 323, 323, 320, 304, 290, 283, 279, 279, 283, 285, 286, 286, 284, 277,
             277, 269, 258, 248, 239, 230, 220, 208, 199, 199, 200, 201, 203, 205, 211, 219, 226, 233, 239, 242, 244,
             247, 238, 223, 211, 197, 185, 184, 187, 195, 205, 211, 212, 210, 207, 205, 202, 199, 196, 194, 192, 188,
-            185, 183, 180, 174, 174, 164, 157, 152, 148, 138, 132, 126, 121, 115, 104, 104, 99, 97, 105, 114, 126, 136, 148,
+            185, 183, 180, 174, 174, 164, 157, 152, 148, 138, 132, 126, 121, 115, 104, 104, 99, 97, 105, 114, 126, 136,
+            148,
             159, 169, 177, 182, 188, 198, 209, 220, 230, 241, 237, 233, 232, 236, 244, 253, 264, 273, 282, 289, 295,
             294, 292, 294, 303, 313, 323, 333, 342, 343, 341, 335, 332, 332, 339, 349, 365, 378, 389, 400, 410, 421,
-            431, 440, 450, 465, 475, 484, 491, 500, 508, 519, 533, 546, 562, 572, 584, 594,604, 612, 621, 629, 637, 649,
+            431, 440, 450, 465, 475, 484, 491, 500, 508, 519, 533, 546, 562, 572, 584, 594, 604, 612, 621, 629, 637,
+            649,
             661, 655, 653, 652, 650, 649, 654, 668, 677, 686, 693, 692, 692, 691, 690, 688, 679, 670, 663, 668, 676,
             684, 689, 687, 680, 674, 666, 661, 659, 658, 658, 659, 668, 670, 667, 658, 659, 662, 664, 666, 668, 668,
             669, 669, 671, 671, 671, 671, 671, 671, 671, 671, 672, 667, 664, 662, 661, 651, 642, 631, 622, 610, 603,
@@ -49,22 +52,23 @@ public class Autobus10 extends Thread {
         this.label = label;
     }
 
-    //Este metodo determina el tiempo de parada de cada autobus en las distinas paradas
-    private void parada()
-    {
+    // Este metodo determina el tiempo de parada de cada autobus en las distinas
+    // paradas
+    private void parada() {
         int min = 500;
         int max = 1300;
-        int aleatorio = (int)(Math.random()*(max-min+1)) + min;
+        int aleatorio = (int) (Math.random() * (max - min + 1)) + min;
         try {
             Thread.sleep(aleatorio);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-    //En este metodo se determina el comportamiento del hilo
+
+    // En este metodo se determina el comportamiento del hilo
     public void run() {
 
-        //Se le agrega una imagen al label
+        // Se le agrega una imagen al label
         label.setIcon(new ImageIcon(getClass().getResource("Imagenes//Autobus10.png")));
         Dimension sizeBus = label.getPreferredSize();
         label.setBounds(150, 100, sizeBus.width, sizeBus.height);
@@ -72,16 +76,8 @@ public class Autobus10 extends Thread {
         Ubicaciones ubicaciones = new Ubicaciones();
         // Realiza el movimiento del label
         do {
-            //Comprueba si esta apunto de adelalntar al autobus de enfrente 
-            int[] coords = {coordenadasX[i],coordenadasY[i]};
-            if (coords == ubicaciones.getBus9()) 
-            {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
-                }
-            }
+            int[] coords = { coordenadasX[i-1], coordenadasY[i-1] };
+
             label.setLocation(coordenadasX[i] - 20, coordenadasY[i] - 20);
             ubicaciones.setBus10(coords);
             // Revisa si el autobus se encuentra en la parada Ciudad Deportiva Rafael Ángel
@@ -174,10 +170,22 @@ public class Autobus10 extends Thread {
             } else {
                 //i++;
             }
-            try {
-                Thread.sleep(400);
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
+            int min = 300;
+            int max = 400;
+            int aleatorio = (int) (Math.random() * (max - min + 1)) + min;
+            // Comprueba si esta apunto de adelalntar al autobus de enfrente
+            if (coords == ubicaciones.getBus9()) {
+                try {
+                    Thread.sleep(600);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
+            } else {
+                try {
+                    Thread.sleep(aleatorio);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
             }
         } while (flag = !false);
 

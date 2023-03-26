@@ -14,9 +14,11 @@ public class Ubicaciones
     private int[] bus9 = new int[2];
     private int[] bus10 = new int[2];
 
+    //Set y get para las coordenadas de todos los autobuses
     public void setBus1(int[] coordenadas)
     {
         bus1 = coordenadas;  
+        System.out.println(bus1[0]+","+bus1[1]);
     }
     public void setBus2(int[] coordenadas)
     {
@@ -53,7 +55,6 @@ public class Ubicaciones
     public void setBus10(int[] coordenadas)
     {
         bus10 = coordenadas;
-        System.out.println(bus10[0]+","+bus10[1]);
     }
 
     public int[] getBus1()
