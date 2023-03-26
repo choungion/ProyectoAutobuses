@@ -44,15 +44,6 @@ public class Mapa extends JFrame
     Autobus8 bus8;
     Autobus9 bus9;
     Autobus10 bus10;
-    
-    
-    //Metodo para agregar botones al frame
-    public void addBoton(Container c, String titulo, ActionListener oyente)
-    {
-        JButton boton = new JButton(titulo);
-        c.add(boton);
-        boton.addActionListener(oyente);
-    }
      
     public Mapa()
     {
@@ -95,23 +86,29 @@ public class Mapa extends JFrame
         JPanel panel_Botones = new JPanel();
 
         //Creacion del boton iniciar y la accion que ejecuta al ser presionado
-        addBoton(panel_Botones, "Iniciar", new ActionListener()
+        JButton btnIniciar = new JButton("Iniciar");
+        btnIniciar.addActionListener(new ActionListener() 
         {
-            public void actionPerformed(ActionEvent evento)
-            {
+            public void actionPerformed(ActionEvent evento) {
                 iniciar();
+                btnIniciar.setEnabled(false);
             }
+            
         });
 
         //Creacion del boton detener y la accion que ejecuta al ser presionado
-        addBoton(panel_Botones, "Detener", new ActionListener()
-        {
-            public void actionPerformed(ActionEvent evento)
-            {
+        JButton btnDetener = new JButton("Detener");
+        btnDetener.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evento) {
                 detener();
+                btnIniciar.setEnabled(true);
             }
+            
+            
         });
 
+        panel_Botones.add(btnIniciar,BorderLayout.WEST);
+        panel_Botones.add(btnDetener, BorderLayout.EAST);
         add(panel_Botones, BorderLayout.SOUTH);
 
     }
