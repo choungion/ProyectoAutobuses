@@ -3,15 +3,13 @@ package proyectoautobuses.pk_Server;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Dimension;
-import java.util.Random;
 
 public class Autobus7 extends Thread {
     // Declaracion de variables
     private String nombre;
     private JLabel label;
-    private Random rand = new Random();
     private static boolean flag = true;
-    private int x, y, i;
+    private int i;
     private static String mensaje;
     private int[] coordenadasX = { 244, 250, 252, 264, 279, 291, 311, 313, 323, 334, 346, 353, 360, 365, 366, 376, 383,
             391, 398, 400, 405, 410, 413, 410, 406, 400, 395, 390, 386, 392, 395, 397, 392, 382, 371, 365, 364, 363,

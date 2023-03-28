@@ -7,21 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.awt.BorderLayout;
-import javax.swing.AbstractButton;
-import java.awt.Graphics2D;
 
 
 public class Mapa extends JFrame
@@ -63,7 +52,7 @@ public class Mapa extends JFrame
         //Definicion de caracteristicas del JFrame
         this.setSize(1200, 800);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(Mapa.EXIT_ON_CLOSE);
         
         //Se utiliza el JLabel fondo para agregar la imagen del mapa con la ruta
         fondo.setIcon(new ImageIcon(getClass().getResource("Imagenes//Mapa.png")));

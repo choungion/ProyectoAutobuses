@@ -3,13 +3,11 @@ package proyectoautobuses.pk_Server;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Dimension;
-import java.util.Random;
 
 public class Autobus3 extends Thread {
     // Declaracion de variables
     private String nombre;
     private JLabel label;
-    private Random rand = new Random();
     private static boolean flag = true;
     private int i;
     private static String mensaje;
