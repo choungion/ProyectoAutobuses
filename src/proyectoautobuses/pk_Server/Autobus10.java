@@ -10,7 +10,8 @@ public class Autobus10 extends Thread {
     private String nombre;
     private JLabel label;
     private static boolean flag = true;
-    private int i;
+    private int i; 
+    private int pasajeros = 20;
     private static String mensaje;
     private int[] coordenadasX = { 244, 250, 252, 264, 279, 291, 311, 313, 323, 334, 346, 353, 360, 365, 366, 376, 383,
             391, 398, 400, 405, 410, 413, 410, 406, 400, 395, 390, 386, 392, 395, 397, 392, 382, 371, 365, 364, 363,
@@ -51,16 +52,38 @@ public class Autobus10 extends Thread {
         this.label = label;
     }
 
-    // Este metodo determina el tiempo de parada de cada autobus en las distinas
-    // paradas
+    // Este metodo determina cuantas personas suben y cuantas bajan en cada parada, esto a su vez determina cuanto tiempo se detiene el autobus en la parada
     private void parada() {
-        int min = 500;
-        int max = 1300;
-        int aleatorio = (int) (Math.random() * (max - min + 1)) + min;
+        int min = 0;
+        int max = pasajeros;
+        int ocupados = 20 - pasajeros;
+        int suben = (int) (Math.random() * (max - min + 1)) + min;
+        int bajan = (int) (Math.random() * (ocupados - min + 1)) + min;
+        if(pasajeros == 0)
+        {
+            suben = 0;
+        }
+        else
+        {
+            pasajeros = pasajeros - suben;
+        }
+        if (pasajeros == 20)
+        {
+            bajan = 0;
+        }
+        else
+        {
+            pasajeros = pasajeros + bajan;
+        }
+        
+        System.out.println("Autobus 10: Suben "+ suben +", bajan "+ bajan);
+        System.out.println("Autobus 10: Quedan " + pasajeros + " asientos libres.");
+
+        int parada = (suben + bajan) * 60;
         try {
-            Thread.sleep(aleatorio);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.sleep(parada);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
         }
     }
 
