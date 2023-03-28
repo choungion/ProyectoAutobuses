@@ -81,7 +81,6 @@ public class Autobus10 extends Thread {
             int coordX=coordenadasX[i];
             int coordY=coordenadasY[i];
             int[] coords = { coordX, coordY };
-            System.out.println(coords[0]);
 
             ubicaciones.setBus10(coordX,coordY);
             // Revisa si el autobus se encuentra en la parada Ciudad Deportiva Rafael Ángel
