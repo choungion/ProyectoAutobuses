@@ -12,6 +12,7 @@ public class Autobus6 extends Thread {
     private Random rand = new Random();
     private static boolean flag = true;
     private int x, y, i;
+    private static String mensaje;
     private int[] coordenadasX = { 244, 250, 252, 264, 279, 291, 311, 313, 323, 334, 346, 353, 360, 365, 366, 376, 383,
             391, 398, 400, 405, 410, 413, 410, 406, 400, 395, 390, 386, 392, 395, 397, 392, 382, 371, 365, 364, 363,
             354, 338, 324, 317, 317, 327, 335, 345, 355, 364, 364, 365, 367, 373, 384, 397, 410, 421, 430, 438, 450,
@@ -71,95 +72,98 @@ public class Autobus6 extends Thread {
         Dimension sizeBus = label.getPreferredSize();
         label.setBounds(150, 100, sizeBus.width, sizeBus.height);
         i = 219;
-        Ubicaciones ubicaciones = new Ubicaciones();
+        
         // Realiza el movimiento del label
         do {
-            int[] coords = { coordenadasX[i-1], coordenadasY[i-1] };
-
             label.setLocation(coordenadasX[i] - 20, coordenadasY[i] - 20);
-            ubicaciones.setBus6(coords);
+
+            int coordX=coordenadasX[i];
+            int coordY=coordenadasY[i];
+
+            Ubicaciones.setBus6(coordX,coordY);
             // Revisa si el autobus se encuentra en la parada Ciudad Deportiva Rafael Ángel
             // Pérez
-            if (coordenadasX[i] == 244 && coordenadasY[i] == 497) {
+            if (coordX == 244 && coordY == 497) {
                 parada();
+                setMensaje("El autobus 1 se encuentra en la parada Ciudad Deportiva Rafael Ángel Pérez");
             }
             // Revisa si el autobus se encuentra en la parada Super Lian, Hatillo
-            if (coordenadasX[i] == 264 && coordenadasY[i] == 480) {
+            if (coordX == 264 && coordY == 480) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Plásticos Tosso
-            if (coordenadasX[i] == 405 && coordenadasY[i] == 461) {
+            if (coordX == 405 && coordY == 461) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Parqueo De Yamuni, San
             // Francisco
-            if (coordenadasX[i] == 338 && coordenadasY[i] == 336) {
+            if (coordX == 338 && coordY == 336) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Colegio María Auxiliadora
-            if (coordenadasX[i] == 364 && coordenadasY[i] == 304) {
+            if (coordX == 364 && coordY == 304) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Escuela Juan Rafael Mora
-            if (coordenadasX[i] == 450 && coordenadasY[i] == 277) {
+            if (coordX == 450 && coordY == 277) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Hotel Caribbean, Amón
-            if (coordenadasX[i] == 599 && coordenadasY[i] == 238) {
+            if (coordX == 599 && coordY == 238) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Parque San Francisco
-            if (coordenadasX[i] == 850 && coordenadasY[i] == 180) {
+            if (coordX == 850 && coordY == 180) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Liceo Nocturno José Joaquín
             // Jiménez Nuñez
-            if (coordenadasX[i] == 933 && coordenadasY[i] == 138) {
+            if (coordX == 933 && coordY == 138) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Acueductos Y Alcantarillados
             // Guadalupe
-            if (coordenadasX[i] == 975 && coordenadasY[i] == 104) {
+            if (coordX == 975 && coordY == 104) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Rotonda De Betania
-            if (coordenadasX[i] == 987 && coordenadasY[i] == 230) {
+            if (coordX == 987 && coordY == 230) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Colegio Salesiano Don Bosco
-            if (coordenadasX[i] == 954 && coordenadasY[i] == 450) {
+            if (coordX == 954 && coordY == 450) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Escuela República Dominicana
-            if (coordenadasX[i] == 894 && coordenadasY[i] == 649) {
+            if (coordX == 894 && coordY == 649) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Abastecedor Los Sauces
-            if (coordenadasX[i] == 811 && coordenadasY[i] == 654) {
+            if (coordX == 811 && coordY == 654) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Parque De Monte Azul
-            if (coordenadasX[i] == 619 && coordenadasY[i] == 659) {
+            if (coordX == 619 && coordY == 659) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Cevichería Costa Azul
-            if (coordenadasX[i] == 592 && coordenadasY[i] == 667) {
+            if (coordX == 592 && coordY == 667) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Taller Gernon
-            if (coordenadasX[i] == 326 && coordenadasY[i] == 667) {
+            if (coordX == 326 && coordY == 667) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Plaza América
-            if (coordenadasX[i] == 309 && coordenadasY[i] == 642) {
+            if (coordX == 309 && coordY == 642) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Rest. La Fortuna, Hatillo 4
-            if (coordenadasX[i] == 276 && coordenadasY[i] == 563) {
+            if (coordX == 276 && coordY == 563) {
                 parada();
             }
             // Revisa si el autobus se encuentra en la parada Terminal Hatillo
-            if (coordenadasX[i] == 311 && coordenadasY[i] == 500) {
+            if (coordX == 311 && coordY == 500) {
                 parada();
             }
             if (i == 285) {
@@ -168,11 +172,13 @@ public class Autobus6 extends Thread {
             } else {
                 i++;
             }
+
             int min = 300;
             int max = 400;
             int aleatorio = (int) (Math.random() * (max - min + 1)) + min;
+
             // Comprueba si esta apunto de adelalntar al autobus de enfrente
-            if (coords == ubicaciones.getBus5()) {
+            if (coordX == Ubicaciones.getBus5()[0] && coordY == Ubicaciones.getBus5()[1]) {
                 try {
                     Thread.sleep(600);
                 } catch (InterruptedException e1) {
@@ -193,5 +199,14 @@ public class Autobus6 extends Thread {
     // termine la ejecucion del ciclo do while
     public static void stopImgMv() {
         flag = false;
+    }
+
+    //Metodos set y get para el mensaje que dara el autobus dependiendo de la parada en la que se encuentre
+    public void setMensaje(String MENSAJE) {
+        mensaje = MENSAJE;
+    }
+
+    public static String getMensaje() {
+        return mensaje;
     }
 }

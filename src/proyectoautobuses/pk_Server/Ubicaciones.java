@@ -3,97 +3,107 @@ package proyectoautobuses.pk_Server;
 public class Ubicaciones 
 {
     //Declaracion de variables
-    private int[] bus1 = new int[2];
-    private int[] bus2 = new int[2];
-    private int[] bus3 = new int[2];
-    private int[] bus4 = new int[2];
-    private int[] bus5 = new int[2];
-    private int[] bus6 = new int[2];
-    private int[] bus7 = new int[2];
-    private int[] bus8 = new int[2];
-    private int[] bus9 = new int[2];
-    private int[] bus10 = new int[2];
+    private static int[] bus1 = new int[2];
+    private static int[] bus2 = new int[2];
+    private static int[] bus3 = new int[2];
+    private static int[] bus4 = new int[2];
+    private static int[] bus5 = new int[2];
+    private static int[] bus6 = new int[2];
+    private static int[] bus7 = new int[2];
+    private static int[] bus8 = new int[2];
+    private static int[] bus9 = new int[2];
+    private static int[] bus10 = new int[2];
 
+    
     //Set y get para las coordenadas de todos los autobuses
-    public void setBus1(int[] coordenadas)
+    public static void setBus1(int coordenadasX, int coordenadasY)
     {
-        bus1 = coordenadas;  
-        System.out.println(bus1[0]+","+bus1[1]);
+        bus1[0]=coordenadasX;
+        bus1[1]=coordenadasY;
     }
-    public void setBus2(int[] coordenadas)
+    public static void setBus2(int coordenadasX, int coordenadasY)
     {
-        bus2 = coordenadas;
+        bus2[0] = coordenadasX;
+        bus2[1] = coordenadasY;
     }
-    public void setBus3(int[] coordenadas)
+    public static void setBus3(int coordenadasX, int coordenadasY)
     {
-        bus3 = coordenadas;
+        bus3[0] = coordenadasX;
+        bus3[1] = coordenadasY;
     }
-    public void setBus4(int[] coordenadas)
+    public void setBus4(int coordenadasX, int coordenadasY)
     {
-        bus4 = coordenadas;
+        bus4[0] = coordenadasX;
+        bus4[1] = coordenadasY;
     }
-    public void setBus5(int[] coordenadas)
+    public static void setBus5(int coordenadasX, int coordenadasY)
     {
-        bus5 = coordenadas;
+        bus5[0] = coordenadasX;
+        bus5[1] = coordenadasY;
     }
-    public void setBus6(int[] coordenadas)
+    public static void setBus6(int coordenadasX, int coordenadasY)
     {
-        bus6 = coordenadas;
+        bus6[0] = coordenadasX;
+        bus6[1] = coordenadasY;
     }
-    public void setBus7(int[] coordenadas)
+    public static void setBus7(int coordenadasX, int coordenadasY)
     {
-        bus7 = coordenadas;
+        bus7[0] = coordenadasX;
+        bus7[1] = coordenadasY;
     }
-    public void setBus8(int[] coordenadas)
+    public static void setBus8(int coordenadasX, int coordenadasY)
     {
-        bus8 = coordenadas;
+        bus8[0] = coordenadasX;
+        bus8[1] = coordenadasY;
     }
-    public void setBus9(int[] coordenadas)
+    public static void setBus9(int coordenadasX, int coordenadasY)
     {
-        bus9 = coordenadas;
+        bus9[0] = coordenadasX;
+        bus9[1] = coordenadasY;
     }
-    public void setBus10(int[] coordenadas)
+    public void setBus10(int coordenadasX, int coordenadasY)
     {
-        bus10 = coordenadas;
+        bus10[0]=coordenadasX;
+        bus10[1]=coordenadasY;
     }
 
     public int[] getBus1()
     {
         return bus1;
     }
-    public int[] getBus2()
+    public static int[] getBus2()
     {
         return bus2;
     }
-    public int[] getBus3()
+    public static int[] getBus3()
     {
         return bus3;
     }
-    public int[] getBus4()
+    public static int[] getBus4()
     {
         return bus4;
     }
-    public int[] getBus5()
+    public static int[] getBus5()
     {
         return bus5;
     }
-    public int[] getBus6()
+    public static int[] getBus6()
     {
         return bus6;
     }
-    public int[] getBus7()
+    public static int[] getBus7()
     {
         return bus7;
     }
-    public int[] getBus8()
+    public static int[] getBus8()
     {
         return bus8;
     }
-    public int[] getBus9()
+    public static int[] getBus9()
     {
         return bus9;
     }
-    public int[] getBus10()
+    public static int[] getBus10()
     {
         return bus10;
     }
