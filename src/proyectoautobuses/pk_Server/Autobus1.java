@@ -209,7 +209,7 @@ public class Autobus1 extends Thread {
                 }
             } else {
                 try {
-                    Thread.sleep(aleatorio);
+                    Thread.sleep(0);
                 } catch (InterruptedException e1) {
                     e1.printStackTrace();
                 }
