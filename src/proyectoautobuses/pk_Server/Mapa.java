@@ -6,16 +6,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.Timer;
 
-
-public class Mapa extends JFrame
-{
-    //Declaracion de variables
+public class Mapa extends JFrame implements ActionListener {
+    // Declaracion de variables
     private JPanel panel;
     private JLabel fondo = new JLabel("", SwingConstants.CENTER);
     private JLabel imgBus1 = new JLabel();
@@ -28,7 +29,12 @@ public class Mapa extends JFrame
     private JLabel imgBus8 = new JLabel();
     private JLabel imgBus9 = new JLabel();
     private JLabel imgBus10 = new JLabel();
-    
+    private JLabel labelTiempo;
+    private Timer timer;
+    private int minutosRestantes = 5;
+    private int segundosRestantes = 0;
+    private DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+
     Autobus1 bus1;
     Autobus2 bus2;
     Autobus3 bus3;
@@ -39,27 +45,30 @@ public class Mapa extends JFrame
     Autobus8 bus8;
     Autobus9 bus9;
     Autobus10 bus10;
-    
-    
-     
-    public Mapa()
-    {
+
+    public Mapa() {
         init();
     }
-    
-    public void init()
-    {
-        //Definicion de caracteristicas del JFrame
+
+    public void init() {
+        // Definicion de caracteristicas del JFrame
         this.setSize(1200, 800);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(Mapa.EXIT_ON_CLOSE);
-        
-        //Se utiliza el JLabel fondo para agregar la imagen del mapa con la ruta
+
+        // Se utiliza el JLabel fondo para agregar la imagen del mapa con la ruta
         fondo.setIcon(new ImageIcon(getClass().getResource("Imagenes//Mapa.png")));
         Dimension sizeFondo = fondo.getPreferredSize();
         fondo.setBounds(0, 0, sizeFondo.width, sizeFondo.height);
 
-        //Creacion del JPanel panel
+        // Definicion de las caracteristicas del reloj
+        labelTiempo = new JLabel();
+        JLabel labelFecha = new JLabel(formatoFecha.format(new Date()));
+        timer = new Timer(1000, this);
+        labelTiempo.setBounds(1100, 690, 100, 100);
+        labelFecha.setBounds(1100, 700, 100, 100);
+
+        // Creacion del JPanel panel
         panel = new JPanel(null);
         add(panel, BorderLayout.CENTER);
         panel.add(imgBus1);
@@ -72,40 +81,58 @@ public class Mapa extends JFrame
         panel.add(imgBus8);
         panel.add(imgBus9);
         panel.add(imgBus10);
+        panel.add(labelTiempo);
+        panel.add(labelFecha);
         panel.add(fondo);
-        
-        //Creacion del JPanel panel_Botones y sus elementos
+
+        // Creacion del JPanel panel_Botones y sus elementos
         JPanel panel_Botones = new JPanel();
 
-        //Creacion del boton iniciar y la accion que ejecuta al ser presionado
+        // Creacion del boton iniciar y la accion que ejecuta al ser presionado
         JButton btnIniciar = new JButton("Iniciar");
-        btnIniciar.addActionListener(new ActionListener() 
-        {
+        btnIniciar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evento) {
                 iniciar();
                 btnIniciar.setEnabled(false);
+                minutosRestantes = 5;
+                segundosRestantes = 0;
+                timer.start();
+                actualizarTiempo();
             }
-            
+
         });
 
-        //Creacion del boton detener y la accion que ejecuta al ser presionado
+        // Creacion del boton detener y la accion que ejecuta al ser presionado
         JButton btnDetener = new JButton("Detener");
         btnDetener.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evento) {
                 detener();
                 btnIniciar.setEnabled(true);
+                timer.stop();
             }
-            
-            
+
         });
-        panel_Botones.add(btnIniciar,BorderLayout.WEST);
+        panel_Botones.add(btnIniciar, BorderLayout.WEST);
         panel_Botones.add(btnDetener, BorderLayout.EAST);
         add(panel_Botones, BorderLayout.SOUTH);
 
     }
-     //Metodo para iniciar los hilos de los autobuses
-     public void iniciar()
-     {
+
+    public void actionPerformed(ActionEvent e) {
+        segundosRestantes++;
+        if (segundosRestantes >= 60) {
+            minutosRestantes++;
+            segundosRestantes = 0;
+        }
+        if (minutosRestantes >= 24) {
+            minutosRestantes = 5;
+            segundosRestantes = 0;
+        }
+        actualizarTiempo();
+    }
+
+    // Metodo para iniciar los hilos de los autobuses
+    public void iniciar() {
         bus1 = new Autobus1("Bus1", imgBus1);
         bus2 = new Autobus2("Bus2", imgBus2);
         bus3 = new Autobus3("Bus3", imgBus3);
@@ -138,12 +165,17 @@ public class Mapa extends JFrame
         bus8.start();
         bus9.start();
         bus10.start();
-        
-     }
 
-    //Metodo para detener los hilos de los autobuses
-    public void detener()
-    {
+    }
+
+    // Metodo para actualizar el tiempo del reloj
+    private void actualizarTiempo() {
+        String texto = String.format("%02d:%02d", minutosRestantes, segundosRestantes);
+        labelTiempo.setText(texto);
+    }
+
+    // Metodo para detener los hilos de los autobuses
+    public void detener() {
         bus1.stop();
         bus2.stop();
         bus3.stop();
@@ -155,5 +187,5 @@ public class Mapa extends JFrame
         bus9.stop();
         bus10.stop();
     }
-    
+
 }

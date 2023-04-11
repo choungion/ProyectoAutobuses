@@ -106,86 +106,105 @@ public class Autobus5 extends Thread {
             // Pérez
             if (coordX == 244 && coordY == 497) {
                 parada();
-                setMensaje("El autobus 1 se encuentra en la parada Ciudad Deportiva Rafael Ángel Pérez");
+                setMensaje("Ciudad Deportiva Rafael Ángel Pérez");
             }
             // Revisa si el autobus se encuentra en la parada Super Lian, Hatillo
             if (coordX == 264 && coordY == 480) {
                 parada();
+                setMensaje("Super Lian, Hatillo");
             }
             // Revisa si el autobus se encuentra en la parada Plásticos Tosso
             if (coordX == 405 && coordY == 461) {
                 parada();
+                setMensaje("Plásticos Tosso");
             }
             // Revisa si el autobus se encuentra en la parada Parqueo De Yamuni, San
             // Francisco
             if (coordX == 338 && coordY == 336) {
                 parada();
+                setMensaje("Parqueo De Yamuni, San Francisco");
             }
             // Revisa si el autobus se encuentra en la parada Colegio María Auxiliadora
             if (coordX == 364 && coordY == 304) {
                 parada();
+                setMensaje("Colegio María Auxiliadora");
             }
             // Revisa si el autobus se encuentra en la parada Escuela Juan Rafael Mora
             if (coordX == 450 && coordY == 277) {
                 parada();
+                setMensaje("Escuela Juan Rafael Mora");
             }
             // Revisa si el autobus se encuentra en la parada Hotel Caribbean, Amón
             if (coordX == 599 && coordY == 238) {
                 parada();
+                setMensaje("Hotel Caribbean, Amón");
             }
             // Revisa si el autobus se encuentra en la parada Parque San Francisco
             if (coordX == 850 && coordY == 180) {
                 parada();
+                setMensaje("Parque San Francisco");
             }
             // Revisa si el autobus se encuentra en la parada Liceo Nocturno José Joaquín
             // Jiménez Nuñez
             if (coordX == 933 && coordY == 138) {
                 parada();
+                setMensaje("Liceo Nocturno José Joaquín Jiménez Nuñez");
             }
             // Revisa si el autobus se encuentra en la parada Acueductos Y Alcantarillados
             // Guadalupe
             if (coordX == 975 && coordY == 104) {
                 parada();
+                setMensaje("Acueductos Y Alcantarillados Guadalupe");
             }
             // Revisa si el autobus se encuentra en la parada Rotonda De Betania
             if (coordX == 987 && coordY == 230) {
                 parada();
+                setMensaje("Rotonda De Betania");
             }
             // Revisa si el autobus se encuentra en la parada Colegio Salesiano Don Bosco
             if (coordX == 954 && coordY == 450) {
                 parada();
+                setMensaje("Colegio Salesiano Don Bosco");
             }
             // Revisa si el autobus se encuentra en la parada Escuela República Dominicana
             if (coordX == 894 && coordY == 649) {
                 parada();
+                setMensaje("Escuela República Dominicana");
             }
             // Revisa si el autobus se encuentra en la parada Abastecedor Los Sauces
             if (coordX == 811 && coordY == 654) {
                 parada();
+                setMensaje("Abastecedor Los Sauces");
             }
             // Revisa si el autobus se encuentra en la parada Parque De Monte Azul
             if (coordX == 619 && coordY == 659) {
                 parada();
+                setMensaje("Parque De Monte Azul");
             }
             // Revisa si el autobus se encuentra en la parada Cevichería Costa Azul
             if (coordX == 592 && coordY == 667) {
                 parada();
+                setMensaje("Cevichería Costa Azul");
             }
             // Revisa si el autobus se encuentra en la parada Taller Gernon
             if (coordX == 326 && coordY == 667) {
                 parada();
+                setMensaje("Taller Gernon");
             }
             // Revisa si el autobus se encuentra en la parada Plaza América
             if (coordX == 309 && coordY == 642) {
                 parada();
+                setMensaje("Plaza América");
             }
             // Revisa si el autobus se encuentra en la parada Rest. La Fortuna, Hatillo 4
             if (coordX == 276 && coordY == 563) {
                 parada();
+                setMensaje("Rest. La Fortuna, Hatillo 4");
             }
             // Revisa si el autobus se encuentra en la parada Terminal Hatillo
             if (coordX == 311 && coordY == 500) {
                 parada();
+                setMensaje("Terminal Hatillo");
             }
             if (i == 285) {
 
