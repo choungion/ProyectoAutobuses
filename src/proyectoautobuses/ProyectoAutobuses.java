@@ -4,7 +4,9 @@
  */
 package proyectoautobuses;
 
+import proyectoautobuses.pk_Cliente.Cliente;
 import proyectoautobuses.pk_Server.Mapa;
+import proyectoautobuses.pk_Server.Ubicaciones;
 
 /**
  *
@@ -16,5 +18,7 @@ public class ProyectoAutobuses
     public static void main(String[] args) 
     {
         new Mapa().setVisible(true);
+        new Cliente().setVisible(true);
+        new Ubicaciones();
     }
 }

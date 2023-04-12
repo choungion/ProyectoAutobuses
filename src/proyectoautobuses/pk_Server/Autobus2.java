@@ -11,7 +11,7 @@ public class Autobus2 extends Thread {
     private static boolean flag = true;
     private int i;
     private int pasajeros = 20;
-    private static String mensaje;
+    private static String mensaje, pasaParadas;
     private int[] coordenadasX = { 244, 250, 252, 264, 279, 291, 311, 313, 323, 334, 346, 353, 360, 365, 366, 376, 383,
             391, 398, 400, 405, 410, 413, 410, 406, 400, 395, 390, 386, 392, 395, 397, 392, 382, 371, 365, 364, 363,
             354, 338, 324, 317, 317, 327, 335, 345, 355, 364, 364, 365, 367, 373, 384, 397, 410, 421, 430, 438, 450,
@@ -75,8 +75,7 @@ public class Autobus2 extends Thread {
             pasajeros = pasajeros + bajan;
         }
         
-        System.out.println("Autobus 2: Suben "+ suben +", bajan "+ bajan);
-        System.out.println("Autobus 2: Quedan " + pasajeros + " asientos libres.");
+        Autobus2.pasaParadas = "Subieron "+ suben +", bajaron "+ bajan + "\n" + "Quedan " + pasajeros + " asientos libres.";
 
         int parada = (suben + bajan) * 60;
         try {
@@ -249,5 +248,9 @@ public class Autobus2 extends Thread {
 
     public static String getMensaje() {
         return mensaje;
+    }
+    //Metodo get para la variable pasaParadas
+    public static String getpasaParadas() {
+        return pasaParadas;
     }
 }

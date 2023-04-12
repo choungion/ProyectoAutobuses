@@ -7,6 +7,7 @@ import java.awt.Dimension;
 public class Autobus3 extends Thread {
     // Declaracion de variables
     private String nombre;
+    private static String pasaParadas;
     private JLabel label;
     private static boolean flag = true;
     private int i;
@@ -75,8 +76,7 @@ public class Autobus3 extends Thread {
             pasajeros = pasajeros + bajan;
         }
         
-        System.out.println("Autobus 3: Suben "+ suben +", bajan "+ bajan);
-        System.out.println("Autobus 3: Quedan " + pasajeros + " asientos libres.");
+        Autobus3.pasaParadas = "Subieron "+ suben +", bajaron "+ bajan + "\n" + "Quedan " + pasajeros + " asientos libres.";
 
         int parada = (suben + bajan) * 60;
         try {
@@ -247,5 +247,9 @@ public class Autobus3 extends Thread {
 
     public static String getMensaje() {
         return mensaje;
+    }
+    //Metodo get para la variable pasaParadas
+    public static String getpasaParadas() {
+        return pasaParadas;
     }
 }

@@ -9,6 +9,11 @@ import javax.swing.SwingConstants;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.awt.BorderLayout;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -34,6 +39,7 @@ public class Mapa extends JFrame implements ActionListener {
     private int minutosRestantes = 5;
     private int segundosRestantes = 0;
     private DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+    private boolean flag = false;
 
     Autobus1 bus1;
     Autobus2 bus2;
@@ -165,7 +171,6 @@ public class Mapa extends JFrame implements ActionListener {
         bus8.start();
         bus9.start();
         bus10.start();
-
     }
 
     // Metodo para actualizar el tiempo del reloj
@@ -187,5 +192,4 @@ public class Mapa extends JFrame implements ActionListener {
         bus9.stop();
         bus10.stop();
     }
-
 }

@@ -8,6 +8,7 @@ public class Autobus10 extends Thread {
 
     // Declaracion de variables
     private String nombre;
+    private static String pasaParadas;
     private JLabel label;
     private static boolean flag = true;
     private int i; 
@@ -76,8 +77,7 @@ public class Autobus10 extends Thread {
             pasajeros = pasajeros + bajan;
         }
         
-        System.out.println("Autobus 10: Suben "+ suben +", bajan "+ bajan);
-        System.out.println("Autobus 10: Quedan " + pasajeros + " asientos libres.");
+        Autobus10.pasaParadas = "Subieron "+ suben +", bajaron "+ bajan + "\n" + "Quedan " + pasajeros + " asientos libres.";
 
         int parada = (suben + bajan) * 60;
         try {
@@ -245,11 +245,16 @@ public class Autobus10 extends Thread {
         flag = false;
     }
 
+    //Metodos set y get para la variable mensaje
     public void setMensaje(String MENSAJE) {
         Autobus10.mensaje = MENSAJE;
     }
-
     public static String getMensaje() {
         return mensaje;
+    }
+
+    //Metodo get para la variable pasaParadas
+    public static String getpasaParadas() {
+        return pasaParadas;
     }
 }
