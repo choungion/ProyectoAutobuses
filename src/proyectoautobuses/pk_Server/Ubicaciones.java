@@ -179,17 +179,4 @@ public class Ubicaciones implements Runnable {
             System.out.println("Error: " + ex.getMessage());
         }
     }
-
-    // Metodo para la creacion y el comportamiento del socket que envia la
-    // informacion al cliente
-    public static void enviaMensaje() {
-        
-        try {
-            Socket mi_socket = new Socket("localhost", 1111);
-
-            
-        } catch (IOException ex) {
-            //System.out.println("Error: " + ex.getMessage());
-        }
-    }
 }
