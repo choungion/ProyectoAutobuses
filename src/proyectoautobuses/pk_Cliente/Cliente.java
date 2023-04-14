@@ -48,12 +48,6 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
         MenuAutobuses
                 .setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Autobus 1", "Autobus 2", "Autobus 3",
                         "Autobus 4", "Autobus 5", "Autobus 6", "Autobus 7", "Autobus 8", "Autobus 9", "Autobus 10" }));
-        MenuAutobuses.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuAutobusesActionPerformed(evt);
-            }
-
-        });
 
         jTextArea.setColumns(20);
         jTextArea.setRows(5);
@@ -91,13 +85,6 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuAutobusesActionPerformed(java.awt.event.ActionEvent evt) {
-        
-    }
-
-    /**
-     * @param args the command line arguments
-     */
     @Override
     public void run()
     {

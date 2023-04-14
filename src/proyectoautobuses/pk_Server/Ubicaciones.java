@@ -120,7 +120,7 @@ public class Ubicaciones implements Runnable {
     }
 
     // Metodo para la creacion y el comportamiento del socket que recibe la
-    // informacion del cliente
+    // informacion del cliente y le envia los detalles del autobus seleccionado
     @Override
     public void run() {
         try {
