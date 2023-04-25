@@ -86,6 +86,7 @@ public class Cliente extends javax.swing.JFrame implements Runnable {
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
+    //Metodo que envia la informacion al servidor y muestra los detalles que recibe del mismo
     public void run()
     {
         do{

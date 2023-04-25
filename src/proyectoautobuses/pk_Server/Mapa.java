@@ -9,11 +9,6 @@ import javax.swing.SwingConstants;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.awt.BorderLayout;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -123,7 +118,7 @@ public class Mapa extends JFrame implements ActionListener {
         add(panel_Botones, BorderLayout.SOUTH);
 
     }
-
+    // Metodo para el cambio de los valores del reloj
     public void actionPerformed(ActionEvent e) {
         segundosRestantes++;
         if (segundosRestantes >= 60) {
